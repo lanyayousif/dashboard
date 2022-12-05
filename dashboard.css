@@ -1,0 +1,574 @@
+
+
+:root{
+    --bluee:rgb(21, 96, 176);
+    --black1:rgb(0,0,0);
+    --black2:rgb(142, 141, 141);
+}
+
+
+*,
+::after,
+::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* general */
+ul{
+    list-style-type: none;
+    padding: 0!important;
+}
+a{
+    text-decoration: none!important;
+}
+
+
+/* style */
+
+.containers{
+    position: relative;
+    width: 100%;
+}
+
+.navigation{
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgb(21, 96, 176);
+    border-left: 10px solid rgb(21, 96, 176);
+    transition: 0.5s;
+    overflow: hidden;
+    z-index: 44;
+}
+
+.navigation.active{
+    width: 80px;
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.navigation ul li:hover,
+.navigation ul li.hovered{
+    background-color: white;
+}
+.navigation ul li:nth-child(1){
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    color: white;
+
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a{
+    color: rgb(21, 96, 176);
+}
+
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+.navigation ul li a .icon ion-icon{
+    font-size: 1.7rem;
+} 
+.navigation ul li a .title{
+position: relative;
+display: block;
+height: 60px;
+line-height: 60px;
+text-align: start;
+padding: 0 10px;
+white-space: nowrap;
+
+
+}
+
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before{
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px white;
+    pointer-events: none;
+} 
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after{
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px white;
+    pointer-events: none;
+} 
+
+
+
+/* main */
+
+.main{
+    position: absolute;
+    width: calc(100%);
+    left: 0px;
+    min-height: 100vh;
+    background-color: white;
+    transition: 0.5s;
+}
+
+.main.active{
+    width: calc(100%);
+    left:0px;
+}
+.topbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle{
+position: relative;
+left: 0px;
+width: 60px;
+height: 60px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 2.5rem;
+cursor: pointer;
+z-index: 1000000;
+transition: 0.5s;
+}
+
+.search{
+    width: 400px;
+    position: relative;
+    margin: 0 10px;
+}
+
+.search label{
+    position: relative;
+    width: 100%;
+}
+.search label input{
+width: 100%;
+height: 40px;
+border-radius: 40px;
+padding: 5px 20px;
+outline: none;
+border: 1px solid gray;
+padding-left: 35px;
+font-size: 18px;
+}
+
+.search label ion-icon{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.2rem;
+}
+
+.user{
+position: relative;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+overflow: hidden;
+cursor: pointer;
+
+}
+
+.user img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+
+
+.cardbox{
+    position: relative;
+    width: 98%;
+    padding: 20px;
+    justify-content: space-evenly;
+    column-gap: 10px;
+    margin: 0 auto!important;
+    overflow: hidden;
+}
+
+.cardbox .cardd{
+    position: relative;
+    background-color: white;
+    padding: 30px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, .08);
+   max-width: 350px;
+   margin-bottom: 20px;
+}
+
+.cardbox .cardd .numbers{
+    position: relative;
+    font-weight: 600;
+    font-size: 2rem;
+    color:var(--bluee);
+}
+
+.cardbox .cardd .card_name{
+    color:var(--black2);
+    font-size: 1rem;
+    margin: 5px;
+}
+
+.cardbox .cardd .icon_box{
+    font-size: 3rem;
+    color: var(--black2);
+}
+
+.cardbox .cardd:hover{
+    background-color: var(--bluee);
+}
+
+.cardbox .cardd:hover .numbers,
+.cardbox .cardd:hover .icon_box,
+.cardbox .cardd:hover .card_name{
+color: white;
+}
+
+.details{
+    position: relative;
+    width: 98%;
+    padding: 20px;
+    justify-content: space-around;
+    column-gap: 10px;
+    margin: 10px auto!important;
+}
+.recent0order{
+    position: relative;
+    min-height: 500px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, .08);
+    border-radius: 20px;
+    margin-top: 20px!important;
+}
+
+.cardheader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardheader h2{
+    font-weight: 600;
+    color: var(--bluee);
+}
+.cardheader .btnn{
+position: relative;
+padding: 5px 10px;
+background-color: var(--bluee);
+text-decoration: none;
+color: white;
+border-radius: 6px;
+}
+
+.details table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.details table thead td{
+    font-weight: 600;
+
+}
+.details .recent0order table tr{
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    color: var(--black1);
+}
+.details .recent0order table tr:last-child{
+    border-bottom:none;
+}
+.details .recent0order table tbody tr:hover{
+    background-color: var(--bluee);
+    color: white;
+
+}
+.details .recent0order table tr td{
+    padding: 10px;
+}
+
+.details .recent0order table tr td:last-child{
+    text-align: end;
+}
+.details .recent0order table tr td:nth-child(2){
+    text-align: end;
+}
+.details .recent0order table tr td:nth-child(3){
+    text-align: center;
+}
+
+.status.deliverd{
+    padding: 2px 4px;
+    background-color: #8de02c;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.status.pending{
+    padding: 2px 4px;
+    background-color: #f00;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.recentCustomer{
+    position: relative;
+    min-height: 500px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, .08);
+    border-radius: 20px;
+    margin-top: 20px!important;
+}
+
+.recentCustomer .imgbox{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.recentCustomer .imgbox img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+
+.recentCustomer table tr td{
+    padding: 12px 10px;
+}
+
+.recentCustomer table tr td h4{
+    font-size: 16px;
+    font-weight: 500px;
+    line-height: 1.2rem;
+}
+.recentCustomer table tr td h4 span{
+    color: var(--black2);
+    font-size: 14px;
+}
+.recentCustomer table tr:hover{
+    background-color: var(--bluee);
+    color: white;
+}
+.recentCustomer table tr:hover td h4 span{
+    color: white;
+}
+
+
+
+/* responsive */
+
+@media (min-width:1200px) {
+    .details,
+    .cardbox{
+        flex-wrap: nowrap!important;
+    }
+    .navigation{
+        width: 300px;
+    }
+    .navigation.active{
+        width: 80px;
+    }
+    .main{
+        width: calc(100% - 300px);
+        left: 300px;
+    }
+    .main.active{
+        width: calc(100% - 80px);
+        left: 80px;
+    }
+    
+}
+@media (max-width:1200px) {
+    .main{
+        width: calc(100% - 80px);
+        height: 100%;
+        left: 80px;
+    }
+    .main.active::before{
+        content: '';
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(3px);
+        z-index: 43;
+        pointer-events: all;
+        overflow: auto;
+    }
+    /* .main .toggle{
+        left: 80px;
+    } */
+    .main.active .toggle{
+        left: 220px;
+        color: white;
+        transition: 0.5s;
+    }
+    .navigation{
+        width: 80px;
+    }
+    .navigation.active{
+        width: 300px;
+    }
+}
+@media (min-width:991px) {
+    .details,
+    .cardbox{
+        flex-wrap: nowrap!important;
+    }
+}
+@media (max-width:991px) {
+    .navigation{
+        left:-300px;   
+    }
+    .main{
+        width: 100%;
+        left: 0;
+    }
+    .main .toggle{
+        left: 0;
+    }
+    .navigation.active{
+        left:0px;  
+        width: 300px; 
+    }
+    .main.active{
+        width: 100%;
+        /* left: 300px; */
+        left: 0;
+    }   
+}
+
+@media (max-width:768px){
+.recent0order{
+    overflow-x: auto;
+}
+.status{
+ white-space: nowrap;
+}
+.cardheader h2{
+    font-size: 20px
+}
+.user{
+    min-width: 40px;
+}
+
+}
+
+@media (max-width:586px){
+    .navigation{
+        width: 100%;
+        left: -100%;
+        z-index: 10000;
+    }
+    .main{
+        width: 100%;
+        left: 0;
+    }
+    .main.active{
+        width: 100%;
+        left:0;
+    }
+    .navigation.active{
+        left:0px;  
+        width: 100%; 
+    }
+    .toggle{
+        z-index: 1000001;
+    }
+    .main.active .toggle{
+        position: fixed;
+        right: 0;
+        left: initial;
+        color: white;
+    }
+
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
